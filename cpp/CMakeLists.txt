@@ -3,6 +3,8 @@ project(wasm-emscripten-template)
 
 set(CMAKE_CXX_STANDARD 20)
 
+add_definitions(-DWEBGPU_ENABLE)
+
 get_filename_component(PROJECT_PARENT_DIR ${PROJECT_SOURCE_DIR} DIRECTORY)
 
 # 设置输出目录
