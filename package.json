@@ -4,13 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "init": "sh ./install.sh",
-    "build-wasm": "export WASM_OUT=1 && sh ./build/build-wasm.sh",
-    "build-asm": "export WASM_OUT=0 && export ASYNC_LOAD=0 && sh ./build/build-wasm.sh",
-    "build-asm-async": "export WASM_OUT=0 && export ASYNC_LOAD=1 && sh ./build/build-wasm.sh",
+    "init": "/bin/bash ./install.sh",
+    "build-wasm": "export WASM_OUT=1 && /bin/bash ./build/build-wasm.sh",
+    "build-wasm-watch": "npx nodemon --watch ./cpp/src/**/* --exec 'npm run build-wasm'",
+    "build-asm": "export WASM_OUT=0 && export ASYNC_LOAD=0 && /bin/bash ./build/build-wasm.sh",
+    "build-asm-async": "export WASM_OUT=0 && export ASYNC_LOAD=1 && /bin/bash ./build/build-wasm.sh",
     "browser-build": "webpack --config ./build/webpack.base.js",
     "browser-dev": "webpack serve --config ./build/webpack.dev.js"
   },
@@ -18,6 +19,7 @@
     "typescript": "^5.2.2",
     "vite": "^5.3.1",
     "vite-plugin-top-level-await": "^1.4.1",
-    "vite-plugin-wasm": "^3.3.0"
+    "vite-plugin-wasm": "^3.3.0",
+    "nodemon": "^3.1.4"
   }
 }

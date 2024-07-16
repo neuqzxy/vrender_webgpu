@@ -1,3 +1,5 @@
-add_library(core main.cpp)
+include_directories(core/includes)
 
-add_subdirectory(bridge)
+add_subdirectory(core)
+add_subdirectory(utils)
+add_subdirectory(platform)

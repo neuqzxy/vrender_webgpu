@@ -5,6 +5,11 @@ export async function abc() {
     function r() {
       console.log('加载完成 Module', Module);
       console.log('aaaaaa', Module._getNum());
+      console.time('创建canvas生成上下文');
+      const window = Module._createBrowserWindow(0, 0, 600, 600);
+      Module._setClearColor(window, 1, 0, 1, 1);
+      // Module._initContext(window);
+      console.timeEnd('创建canvas生成上下文');
     }
     if (Module.isInitialized()) {
       // console.log('同步');

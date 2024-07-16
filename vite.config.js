@@ -17,6 +17,18 @@ export default defineConfig({
       topLevelAwait()
     ]
   },
+  server: {
+    watch: {
+      ignored: ["**/cpp/**"],
+      // 仅监听指定的目录
+      paths: [
+        'src/',
+        'lib/',
+      ],
+      // 其他 watch 选项
+      interval: 100
+    }
+  },
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points
