@@ -8,8 +8,7 @@ include_directories(manager/includes)
 
 add_library(core Bounds.cpp main.cpp
         manager/GraphicsManager.cpp
-        ../rhi/opengl/includes/OpenGLGraphicsManager.hpp
-        ../rhi/opengl/OpenGLGraphicsManager.cpp)
+        manager/PipelineStateManager.cpp)
 # set_target_properties(core PROPERTIES
 #         LINK_FLAGS "-pthread")
 # target_link_libraries(core font_lib)
