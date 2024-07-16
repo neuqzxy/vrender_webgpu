@@ -196,3 +196,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+lib/wasm/
+cpp/cmake-build-emscripten/

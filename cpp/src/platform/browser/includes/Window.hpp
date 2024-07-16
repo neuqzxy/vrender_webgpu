@@ -6,7 +6,7 @@
 #include <emscripten/html5.h>
 #include <emscripten/bind.h>
 #include "IWindow.hpp"
-#include "glm/vec4.hpp"
+#include "Vector.hpp"
 
 class BrowserWindow final: public IWindow {
 public:
@@ -40,7 +40,7 @@ private:
     std::string mTitle;
     bool mInited;
     bool mDestroyed;
-    glm::vec4 mClearColor;
+    Vec4f mClearColor;
     EMSCRIPTEN_WEBGL_CONTEXT_HANDLE mContext;
     std::string mCanvasId;
 
