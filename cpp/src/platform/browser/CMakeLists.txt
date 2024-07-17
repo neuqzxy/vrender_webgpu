@@ -27,6 +27,8 @@ if (CMAKE_SYSTEM_NAME STREQUAL Emscripten)
     add_executable(vrender_webgpu Window.cpp bridge.cpp)
     target_link_libraries(vrender_webgpu core)
     target_link_libraries(vrender_webgpu utils)
+    target_link_libraries(vrender_webgpu opengl)
+    target_link_libraries(vrender_webgpu webgpu)
     set_target_properties(vrender_webgpu PROPERTIES
             LINK_FLAGS "-O3                \
         -s EXPORTED_FUNCTIONS='[         \
@@ -35,11 +37,6 @@ if (CMAKE_SYSTEM_NAME STREQUAL Emscripten)
             \"_main\",         \
             \"_free\",         \
             \"_freeBuffer\",         \
-            \"_createBrowserWindow\",         \
-            \"_createBrowserWindowWithCanvas\",         \
-            \"_initContext\",         \
-            \"_active\",         \
-            \"_setClearColor\",         \
             \"_callJS\"]'              \
         -s 'EXPORTED_RUNTIME_METHODS=[     \
             \"ccall\",                           \
@@ -50,6 +47,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL Emscripten)
         --post-js ${CMAKE_CURRENT_LIST_DIR}/post.js\
         --closure 1\
         -s EXPORT_ES6=1 \
+        -s EXIT_RUNTIME=1 \
         -s MODULARIZE=1 \
         -s 'EXPORT_NAME=\"createModule\"' \
         -s WASM=${WASM} \

@@ -1,8 +1,6 @@
 #include "Window.hpp"
-// #include <GLES2/gl2.h>
-#include <cstring>
+#include <emscripten/bind.h>
 #include <vector>
-#include <thread>
 
 extern "C" {
 //emscripten::val window = emscripten::val::global("window");
@@ -32,32 +30,6 @@ int BrowserWindow::InitWithoutCreate(const WindowConf &conf) {
     return 0;
 }
 
-void BrowserWindow::InitContext() {
-    EmscriptenWebGLContextAttributes attrs{};
-    attrs.explicitSwapControl = 0;
-    attrs.depth = 1;
-    attrs.stencil = 1;
-    attrs.antialias = 1;
-    attrs.majorVersion = 2;
-    attrs.minorVersion = 0;
-
-    mContext = emscripten_webgl_create_context(mCanvasId.c_str(), &attrs);
-    if (mContext == 0) {
-        throw std::runtime_error("获取context发生错误");
-    }
-    MakeContextCurrent();
-    return;
-
-//    InitResourceManager({"default"});
-
-    // glClearColor(mClearColor.r, mClearColor.g, mClearColor.b, mClearColor.a);
-    // glClear(GL_COLOR_BUFFER_BIT);
-}
-
-void BrowserWindow::MakeContextCurrent() const {
-    emscripten_webgl_make_context_current(mContext);
-}
-
 void BrowserWindow::Destroy() {
     mDestroyed = true;
 }
@@ -79,6 +51,10 @@ void BrowserWindow::SetClearColor(float r, float g, float b, float a) {
     mClearColor.g = g;
     mClearColor.b = b;
     mClearColor.a = a;
+}
+
+const Vec4f& BrowserWindow::GetClearColor() const {
+    return mClearColor;
 }
 
 int BrowserWindow::GetId() {

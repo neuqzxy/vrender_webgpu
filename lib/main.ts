@@ -6,8 +6,15 @@ export async function abc() {
       console.log('加载完成 Module', Module);
       console.log('aaaaaa', Module._getNum());
       console.time('创建canvas生成上下文');
-      const window = Module._createBrowserWindow(0, 0, 600, 600);
-      Module._setClearColor(window, 1, 0, 1, 1);
+      const window = new Module.BrowserWindow();
+      window.Init({ width: 600, height: 600, title: 'abc' });
+      // console.log(Module.IWindowPtr._constructor);
+      const graphicManager = new Module.OpenGLGraphicsManager(window);
+      console.log(window, graphicManager);
+      // console.log(Module, new Module.Window({}));
+      
+      // const window = Module._createBrowserWindow(0, 0, 600, 600);
+      // Module._setClearColor(window, 1, 0, 1, 1);
       // Module._initContext(window);
       console.timeEnd('创建canvas生成上下文');
     }

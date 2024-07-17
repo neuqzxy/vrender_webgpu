@@ -16,11 +16,11 @@ if (typeof exports === 'object') {
   exports._callJS = _callJS;
 
   /* window API */
-  exports._createBrowserWindow = _createBrowserWindow;
-  exports._createBrowserWindowWithCanvas = _createBrowserWindowWithCanvas;
-  exports._initContext = _initContext;
-  exports._active = _active;
-  exports._setClearColor = _setClearColor;
+  // exports._createBrowserWindow = _createBrowserWindow;
+  // exports._createBrowserWindowWithCanvas = _createBrowserWindowWithCanvas;
+  // exports._initContext = _initContext;
+  // exports._active = _active;
+  // exports._setClearColor = _setClearColor;
   /* window API */
 
   exports._addInitializationCb = addInitializationCb;

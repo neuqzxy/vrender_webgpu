@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Vector.hpp"
+#include <string>
 
 struct WindowConf {
     float width;
