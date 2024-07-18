@@ -6,7 +6,7 @@
 
 class IWindow {
 public:
-    IWindow(Vec4f clearColor, std::string canvasId, float w, float h): mId{sId++}, mClearColor{std::move(clearColor)}, mCanvasId{std::move(canvasId)}, mWidth{w}, mHeight{h} {}
+    IWindow(Vec4f clearColor, std::string canvasId, float w, float h): mId{sId++}, mClearColor{clearColor}, mCanvasId{std::move(canvasId)}, mWidth{w}, mHeight{h} {}
     virtual ~IWindow() = default;
     virtual int Init(const WindowConf &conf) = 0;
     virtual void Destroy() = 0;
@@ -17,7 +17,7 @@ public:
     virtual int GetId() = 0;
     virtual void SetId(const int &id) = 0;
     virtual void SetClearColor(float r, float g, float b, float a) = 0;
-    virtual const Vec4f& GetClearColor() const = 0;
+    [[nodiscard]] virtual const Vec4f& GetClearColor() const = 0;
     virtual float GetDpr() = 0;
     virtual std::string GetCanvasId() = 0;
 

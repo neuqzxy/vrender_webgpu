@@ -11,6 +11,7 @@ export async function abc() {
       // console.log(Module.IWindowPtr._constructor);
       const graphicManager = new Module.OpenGLGraphicsManager(window);
       console.log(window, graphicManager);
+      graphicManager.Initialize();
       // console.log(Module, new Module.Window({}));
       
       // const window = Module._createBrowserWindow(0, 0, 600, 600);

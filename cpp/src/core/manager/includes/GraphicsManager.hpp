@@ -5,7 +5,7 @@
 
 class GraphicsManager {
 public:
-    explicit GraphicsManager(std::shared_ptr<IWindow> &window): mWindow{window} {};
+    explicit GraphicsManager(std::shared_ptr<IWindow> window): mWindow{std::move(window)} {};
     virtual ~GraphicsManager() = default;
     virtual int Initialize() = 0;
     virtual void Finalize() = 0;

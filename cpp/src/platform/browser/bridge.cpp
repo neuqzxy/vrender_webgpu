@@ -54,20 +54,20 @@ extern "C" {
     }
     EMSCRIPTEN_BINDINGS(IWindow) {
         emscripten::class_<IWindow>("IWindow");
-        emscripten::class_<std::shared_ptr<IWindow>>("IWindowPtr");
+//        emscripten::class_<std::shared_ptr<IWindow>>("IWindowPtr");
+//        emscripten::class_<std::shared_ptr<BrowserWindow>>("IBrowserWindowPtr");
     }
     EMSCRIPTEN_BINDINGS(BrowserWindow) {
-        emscripten::class_<BrowserWindow>("BrowserWindow")
+        emscripten::class_<BrowserWindow, emscripten::base<IWindow>>("BrowserWindow")
                 .constructor<>()
                 .function("Init", &BrowserWindow::Init)
                 .function("InitWithoutCreate", &BrowserWindow::InitWithoutCreate)
                 .function("SetClearColor", &BrowserWindow::SetClearColor);
     }
-    typedef OpenGLGraphicsManager<BrowserWindow> OpenGLGraphicsManagerBrowserWindow;
-    EMSCRIPTEN_BINDINGS(OpenGLGraphicsManagerBrowserWindow) {
-        emscripten::class_<OpenGLGraphicsManagerBrowserWindow>("OpenGLGraphicsManager")
-                .constructor<std::shared_ptr<BrowserWindow>&>()
-                .function("Initialize", &OpenGLGraphicsManagerBrowserWindow::Initialize);
+    EMSCRIPTEN_BINDINGS(OpenGLGraphicsManager) {
+        emscripten::class_<OpenGLGraphicsManager>("OpenGLGraphicsManager")
+                .constructor<BrowserWindow *>()
+                .function("Initialize", &OpenGLGraphicsManager::Initialize);
     }
 //  EM_PORT_API(BrowserWindow*) createBrowserWindow(float x, float y, float w, float h) {
 //    auto *window = new BrowserWindow();

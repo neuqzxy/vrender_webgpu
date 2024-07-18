@@ -10,11 +10,10 @@ if (typeof mergeInto !== 'undefined') mergeInto(LibraryManager.library, {
       const canvas = document.createElement('canvas');
       canvas.width = w;
       canvas.height = h;
-      canvas.id = 'canopus_' + id;
+      canvas.id = 'vrender_' + id;
       document.body.appendChild(canvas);
       const dpr = window.devicePixelRatio;
       canvas.style.width = `${w / dpr}px`;
       canvas.style.height = `${h / dpr}px`;
-      // const context = canvas.getContext("webgl2");
   }
 });

@@ -30,7 +30,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL Emscripten)
     target_link_libraries(vrender_webgpu opengl)
     target_link_libraries(vrender_webgpu webgpu)
     set_target_properties(vrender_webgpu PROPERTIES
-            LINK_FLAGS "-O3                \
+            LINK_FLAGS "-O1                \
         -s EXPORTED_FUNCTIONS='[         \
             \"_getNum\",         \
             \"_malloc\",         \
@@ -52,15 +52,15 @@ if (CMAKE_SYSTEM_NAME STREQUAL Emscripten)
         -s 'EXPORT_NAME=\"createModule\"' \
         -s WASM=${WASM} \
         -s WASM_ASYNC_COMPILATION=${ASYNC_LOAD} \
-        -s FILESYSTEM=0 \
+        -s FILESYSTEM=1 \
         -s ASSERTIONS=1 \
         -s LLD_REPORT_UNDEFINED \
-        -s USE_PTHREADS=0 \
         -s FULL_ES3=1 \
+        -s USE_WEBGL2=1 \
         -s NO_EXIT_RUNTIME=1 \
         -s DISABLE_EXCEPTION_CATCHING=0 \
         -s INITIAL_MEMORY=125829120\
-        -s ALLOW_MEMORY_GROWTH=0")
+        -s ALLOW_MEMORY_GROWTH=1")
 
     #    add_subdirectory(test)
     #    enable_testing()
