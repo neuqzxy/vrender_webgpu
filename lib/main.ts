@@ -9,7 +9,7 @@ export async function abc() {
       const window = new Module.BrowserWindow();
       window.Init({ width: 600, height: 600, title: 'abc' });
       // console.log(Module.IWindowPtr._constructor);
-      const graphicManager = new Module.OpenGLGraphicsManager(window);
+      const graphicManager = new Module.WebGPUGraphicsManager(window);
       console.log(window, graphicManager);
       graphicManager.Initialize();
       // console.log(Module, new Module.Window({}));

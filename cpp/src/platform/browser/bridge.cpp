@@ -23,6 +23,7 @@
 #include <cstdlib>
 #include "Window.hpp"
 #include "OpenGLGraphicsManager.hpp"
+#include "WebGPUGraphicsManager.hpp"
 
 extern "C" {
   /* window API */
@@ -68,6 +69,11 @@ extern "C" {
         emscripten::class_<OpenGLGraphicsManager>("OpenGLGraphicsManager")
                 .constructor<BrowserWindow *>()
                 .function("Initialize", &OpenGLGraphicsManager::Initialize);
+    }
+    EMSCRIPTEN_BINDINGS(WebGPUGraphicsManager) {
+        emscripten::class_<WebGPUGraphicsManager>("WebGPUGraphicsManager")
+                .constructor<BrowserWindow *>()
+                .function("Initialize", &WebGPUGraphicsManager::Initialize);
     }
 //  EM_PORT_API(BrowserWindow*) createBrowserWindow(float x, float y, float w, float h) {
 //    auto *window = new BrowserWindow();

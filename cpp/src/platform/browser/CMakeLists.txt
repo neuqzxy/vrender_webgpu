@@ -57,6 +57,8 @@ if (CMAKE_SYSTEM_NAME STREQUAL Emscripten)
         -s LLD_REPORT_UNDEFINED \
         -s FULL_ES3=1 \
         -s USE_WEBGL2=1 \
+        -s USE_WEBGPU=1 \
+        -s ASYNCIFY=1 \
         -s NO_EXIT_RUNTIME=1 \
         -s DISABLE_EXCEPTION_CATCHING=0 \
         -s INITIAL_MEMORY=125829120\

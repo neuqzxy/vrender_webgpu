@@ -1,2 +1,1 @@
-add_library(webgpu WebGPUGraphicsManager.cpp
-        WebGPUPipelineStateManager.cpp)
+add_library(webgpu WebGPUGraphicsManager.cpp WebGPUPipelineStateManager.cpp WebGPUDevice.cpp WebGPUSurface.cpp WebGPURenderPass.cpp WebGPUCommandBuffer.cpp)
