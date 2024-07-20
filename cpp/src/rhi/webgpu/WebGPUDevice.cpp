@@ -120,3 +120,7 @@ WGPUDevice WebGPUDevice::RequestDevice(WGPUAdapter adapter, const WGPUDeviceDesc
 
     return userData.device;
 }
+
+WGPUQueue WebGPUDevice::GetQueue() {
+    return wgpuDeviceGetQueue(mDevice);
+}

@@ -13,6 +13,8 @@ public:
 
     void BeginRendering();
     void EndRendering();
+
+    WGPUQueue GetQueue();
 protected:
     WGPUAdapter RequestAdapter(WGPUInstance instance, WGPURequestAdapterOptions const *options);
     WGPUDevice RequestDevice(WGPUAdapter adapter, WGPUDeviceDescriptor const * descriptor);
