@@ -1,9 +1,9 @@
 #include <semaphore>
 #include <emscripten.h>
-#include "WebGPUDevice.hpp"
+#include "WGDevice.hpp"
 #include "Output.hpp"
 
-int WebGPUDevice::Initialize(WGPUInstance instance) {
+int WGDevice::Initialize(WGPUInstance instance) {
     WGPURequestAdapterOptions adapterOpts{
             .nextInChain = nullptr,
             .compatibleSurface = nullptr,
@@ -36,7 +36,7 @@ int WebGPUDevice::Initialize(WGPUInstance instance) {
     return 0;
 }
 
-void WebGPUDevice::Finalize() {
+void WGDevice::Finalize() {
     if (mAdapter != nullptr) {
         wgpuAdapterRelease(mAdapter);
     }
@@ -45,7 +45,7 @@ void WebGPUDevice::Finalize() {
     }
 }
 
-WGPUAdapter WebGPUDevice::RequestAdapter(WGPUInstance instance, const WGPURequestAdapterOptions *options) {
+WGPUAdapter WGDevice::RequestAdapter(WGPUInstance instance, const WGPURequestAdapterOptions *options) {
     struct UserData {
         WGPUAdapter adapter = nullptr;
         bool requestEnded = false;
@@ -87,7 +87,7 @@ WGPUAdapter WebGPUDevice::RequestAdapter(WGPUInstance instance, const WGPUReques
     return userData.adapter;
 }
 
-WGPUDevice WebGPUDevice::RequestDevice(WGPUAdapter adapter, const WGPUDeviceDescriptor *descriptor) {
+WGPUDevice WGDevice::RequestDevice(WGPUAdapter adapter, const WGPUDeviceDescriptor *descriptor) {
     struct UserData {
         WGPUDevice device = nullptr;
         bool requestEnded = false;
@@ -121,6 +121,6 @@ WGPUDevice WebGPUDevice::RequestDevice(WGPUAdapter adapter, const WGPUDeviceDesc
     return userData.device;
 }
 
-WGPUQueue WebGPUDevice::GetQueue() {
+WGPUQueue WGDevice::GetQueue() {
     return wgpuDeviceGetQueue(mDevice);
 }

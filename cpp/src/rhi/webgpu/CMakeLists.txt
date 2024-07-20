@@ -1,4 +1,4 @@
 add_library(webgpu WebGPUGraphicsManager.cpp WebGPUPipelineStateManager.cpp
-        WebGPUDevice.cpp WebGPUSurface.cpp WebGPURenderPass.cpp WebGPUCommandBuffer.cpp
-        WebGPUCommandQueue.cpp
+        WGDevice.cpp WGSurface.cpp WGRenderPass.cpp WGCommandBuffer.cpp
+        WGCommandQueue.cpp WGTexture.cpp
 )

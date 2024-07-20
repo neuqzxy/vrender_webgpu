@@ -4,8 +4,8 @@
 #include <string>
 
 struct WindowConf {
-    float width;
-    float height;
+    uint32_t width;
+    uint32_t height;
     std::string title;
 };
 

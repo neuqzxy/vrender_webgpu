@@ -6,7 +6,7 @@
 
 class BrowserWindow final: public IWindow {
 public:
-    BrowserWindow(): IWindow({1.f, 0.f, 0.f, 1.f}, sCanvasPrefix+std::to_string(mId), 0.f, 0.f),
+    BrowserWindow(): IWindow({1.f, 0.f, 0.f, 1.f}, sCanvasPrefix+std::to_string(mId), 0, 0),
         mDestroyed{false}, mDpr{1.f} {};
     ~BrowserWindow() override = default;
     int Init(const WindowConf &conf) override; // 会初始化并创建canvas

@@ -1,10 +1,11 @@
 #pragma once
 
 #include <emscripten/html5_webgpu.h>
-#include "WebGPUDevice.hpp"
-#include "WebGPUSurface.hpp"
+#include "WGDevice.hpp"
+#include "WGSurface.hpp"
 #include "IWindow.hpp"
 #include "GraphicsManager.hpp"
+#include "WGCommandBuffer.hpp"
 
 //class WebGPUGraphicsManager: public GraphicsManager {
 //public:
@@ -26,15 +27,16 @@
 class WebGPUGraphicsManager: public GraphicsManager {
 public:
     explicit WebGPUGraphicsManager(IWindow *w): GraphicsManager{std::shared_ptr<IWindow>{w}}, mInstance{},
-        mDevice{std::make_shared<WebGPUDevice>()}, mSurface{std::make_shared<WebGPUSurface>()} {}
+        mDevice{std::make_shared<WGDevice>()}, mSurface{std::make_shared<WGSurface>()}, mCommandBuffer{std::make_shared<WGCommandBuffer>()} {}
     int Initialize() override;
     void Finalize() override;
     ~WebGPUGraphicsManager() override = default;
 
 protected:
     WGPUInstance mInstance;
-    std::shared_ptr<WebGPUDevice> mDevice;
-    std::shared_ptr<WebGPUSurface> mSurface;
+    std::shared_ptr<WGDevice> mDevice;
+    std::shared_ptr<WGSurface> mSurface;
+    std::shared_ptr<WGCommandBuffer> mCommandBuffer;
     int InitInstance();
     int InitContext();
     void ReleaseInstance();
