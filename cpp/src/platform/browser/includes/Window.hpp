@@ -16,7 +16,6 @@ public:
     void GetSize(int *width, int *height) override;
     inline int GetId() override;
     inline void SetId(const int &id) override;
-    void SwapFrame() override;
     inline bool IsDestroyed() override;
     void SetClearColor(float r, float g, float b, float a) override;
     [[nodiscard]] const Vec4f& GetClearColor() const override;

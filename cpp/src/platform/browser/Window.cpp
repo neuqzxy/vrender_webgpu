@@ -73,10 +73,6 @@ std::string BrowserWindow::GetCanvasId() {
     return mCanvasId;
 }
 
-void BrowserWindow::SwapFrame() {
-    return;
-}
-
 float BrowserWindow::GetDpr() {
     return mDpr;
 }

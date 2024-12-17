@@ -1,2 +1,1 @@
-add_library(opengl OpenGLGraphicsManager.cpp
-        OpenGLPipelineStateManager.cpp)
+add_library(opengl OpenGLGraphicsManager.cpp OpenGLPipelineStateManager.cpp OpenGLShader.cpp)

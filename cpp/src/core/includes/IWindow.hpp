@@ -12,7 +12,6 @@ public:
     virtual void Destroy() = 0;
     virtual void Resize(const int &width, const int &height) = 0;
     virtual void GetSize(int *width, int *height) = 0;
-    virtual void SwapFrame() = 0;
     virtual bool IsDestroyed() = 0;
     virtual int GetId() = 0;
     virtual void SetId(const int &id) = 0;

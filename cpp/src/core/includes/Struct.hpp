@@ -10,3 +10,9 @@ struct WindowConf {
 };
 
 typedef Vec2f Point;
+
+template <typename T>
+struct UniformItem {
+    std::string name;
+    T data;
+};

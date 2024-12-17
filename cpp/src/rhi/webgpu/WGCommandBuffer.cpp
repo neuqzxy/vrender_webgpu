@@ -33,6 +33,7 @@ void WGCommandBuffer::BeginRendering(const WGPURenderPassDescriptor *descriptor)
 
 void WGCommandBuffer::EndRendering() {
     wgpuRenderPassEncoderEnd(mCurrentRenderPassEncoder);
+    wgpuRenderPassEncoderRelease(mCurrentRenderPassEncoder);
 }
 
 void WGCommandBuffer::Submit() {

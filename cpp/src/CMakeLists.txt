@@ -1,5 +1,5 @@
 include_directories(core/includes)
-include_directories(core/manager/includes)
+include_directories(core/graphic/includes)
 include_directories(utils/includes)
 include_directories(rhi/opengl/includes)
 include_directories(rhi/webgpu/includes)

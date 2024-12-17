@@ -34,7 +34,6 @@ if (CMAKE_SYSTEM_NAME STREQUAL Emscripten)
         -s EXPORTED_FUNCTIONS='[         \
             \"_getNum\",         \
             \"_malloc\",         \
-            \"_main\",         \
             \"_free\",         \
             \"_freeBuffer\",         \
             \"_callJS\"]'              \
@@ -53,13 +52,14 @@ if (CMAKE_SYSTEM_NAME STREQUAL Emscripten)
         -s WASM=${WASM} \
         -s WASM_ASYNC_COMPILATION=${ASYNC_LOAD} \
         -s FILESYSTEM=1 \
+        -s FORCE_FILESYSTEM \
         -s ASSERTIONS=1 \
         -s LLD_REPORT_UNDEFINED \
         -s FULL_ES3=1 \
         -s USE_WEBGL2=1 \
         -s USE_WEBGPU=1 \
+        -s EXIT_RUNTIME=1 \
         -s ASYNCIFY=1 \
-        -s NO_EXIT_RUNTIME=1 \
         -s DISABLE_EXCEPTION_CATCHING=0 \
         -s INITIAL_MEMORY=125829120\
         -s ALLOW_MEMORY_GROWTH=1")
